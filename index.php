@@ -95,12 +95,12 @@ $total = $data["update"]["total"];
                     <div class="col-md-4">
                         <div class="card mb-3" style="width: 18rem;">
                             <div class="card-body">
-                                <h5 class="card-title">Total Kasus</h5>
+                                <h5 class="card-title text-center">Total Kasus</h5>
                                 <ul class="list-group">
-                                    <li class="list-group-item list-group-item-danger">Jumlah Positif : <?= $penambahan["jumlah_positif"]; ?></li>
-                                    <li class="list-group-item list-group-item-warning">Jumlah Dirawat : <?= $penambahan["jumlah_dirawat"]; ?></li>
-                                    <li class="list-group-item list-group-item-dark">Jumlah Meninggal : <?= $penambahan["jumlah_meninggal"]; ?></li>
-                                    <li class="list-group-item list-group-item-success">Jumlah Sembuh : <?= $penambahan["jumlah_sembuh"]; ?></li>
+                                    <li class="list-group-item list-group-item-danger">Jumlah Positif : <?= $total["jumlah_positif"]; ?></li>
+                                    <li class="list-group-item list-group-item-warning">Jumlah Dirawat : <?= $total["jumlah_dirawat"]; ?></li>
+                                    <li class="list-group-item list-group-item-dark">Jumlah Meninggal : <?= $total["jumlah_meninggal"]; ?></li>
+                                    <li class="list-group-item list-group-item-success">Jumlah Sembuh : <?= $total["jumlah_sembuh"]; ?></li>
                                     <li class="list-group-item"><i class="fas fa-calendar"></i> Data Tanggal : <?= $penambahan["tanggal"]; ?></li>
                                 </ul>
                             </div>
