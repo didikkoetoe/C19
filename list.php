@@ -24,13 +24,52 @@ $listHospital = json_decode($hospital, true);
 </head>
 
 <body>
-    <div class="container border rounded mt-3">
+    <!-- Navbar -->
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                <!-- <div class="container"> -->
+                <span class="navbar-brand mb-0 h1">C19</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Statistik</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="list.php">Rumah Sakit Rujukan</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Vaksin</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="vaksinasi/">List Pendaftar Vaksin</a></li>
+                                <li><a class="dropdown-item" href="vaksinasi/calon.php">Daftar Vaksin</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown me-5">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Vaksin</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <!-- </div> -->
+            </nav>
+        </div>
+    </div>
+    <!-- End of navbar -->
+    <div class="container bg-light border rounded mt-3 mb-3">
         <div class="row mt-2">
             <h1 class="text-center">List Rumah Sakit Rujukan</h1>
         </div>
 
         <!-- Table -->
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -43,7 +82,7 @@ $listHospital = json_decode($hospital, true);
             <tbody>
                 <?php $i = 1; ?>
                 <?php foreach ($listHospital as $hospital) : ?>
-                    <?php if ($i > 10) break ?>
+                    <?php if ($i > 10) ?>
                     <tr>
                         <th><?= $i; ?></th>
                         <td><?= $hospital["name"]; ?></td>
