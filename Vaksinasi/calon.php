@@ -48,7 +48,6 @@ $lists = read("SELECT * FROM vaksin");
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Vaksin</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="vaksinasi/calon.php">List Pendaftar Vaksin</a></li>
                                     <li><a class="dropdown-item" href="../vaksinasi/index.php">Daftar Vaksin</a></li>
                                 </ul>
                             </li>
@@ -84,20 +83,20 @@ $lists = read("SELECT * FROM vaksin");
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($lists as $hospital) : ?>
+                <?php foreach ($lists as $data) : ?>
                     <?php if ($i > 10) break ?>
                     <tr>
                         <th><?= $i; ?></th>
                         <td>
-                            <a class="btn btn-success" data-bs-toggle="offcanvas" href="edit.php" role="button" aria-controls="offcanvasExample">Edit</a>
-                            <a class="btn btn-danger" data-bs-toggle="offcanvas" href="delete.php" role="button" aria-controls="offcanvasExample">Hapus</a>
+                            <a class="btn btn-success" href="edit.php?id=<?= $data["id"]; ?>"> Edit</a>
+                            <a class="btn btn-danger" href="delete.php?id=<?= $data["id"]; ?>">Hapus</a>
                         </td>
-                        <td><?= $hospital["nik"]; ?></td>
-                        <td><?= $hospital["name"]; ?></td>
-                        <td><?= $hospital["birthday"]; ?></td>
-                        <td><?= $hospital["number"]; ?></td>
-                        <td><?= $hospital["address"]; ?></td>
-                        <td><?= $hospital["ke"]; ?></td>
+                        <td><?= $data["nik"]; ?></td>
+                        <td><?= $data["name"]; ?></td>
+                        <td><?= $data["birthday"]; ?></td>
+                        <td><?= $data["number"]; ?></td>
+                        <td><?= $data["address"]; ?></td>
+                        <td><?= $data["ke"]; ?></td>
                     </tr>
                     <?php $i++ ?>
                 <?php endforeach; ?>
