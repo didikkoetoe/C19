@@ -7,10 +7,10 @@ $penambahan = $data["update"]["penambahan"];
 $total = $data["update"]["total"];
 
 // Total Kasus tiap daerah
-$tkDaerah = file_get_contents("https://data.covid19.go.id/public/api/prov.json");
-$result = json_decode($tkDaerah, true);
-$listData = $result["list_data"];
+$kDaerah = file_get_contents("https://data.covid19.go.id/public/api/prov.json");
+$jDaerah = json_decode($kDaerah, true);
 
+$daerah = $jDaerah["list_data"];
 
 ?>
 
@@ -37,39 +37,25 @@ $listData = $result["list_data"];
     <div class="container-fluid">
         <div class="row mt-5">
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-                <div class="container-fluid">
-                    <span class="navbar-brand mb-0 h1">C19</span>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Statistik</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="list.php">List</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="vaksinasi/index.php">Vaksinasi</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Edukasi</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Apa itu Covid ?</a></li>
-                                    <li><a class="dropdown-item" href="#">Berita Hoax yang beredar</a></li>
-                                    <li><a class="dropdown-item" href="#">Cara Mencegah</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <form class="d-flex" id="cari">
-                        <input class="form-control me-2 rounded-pill" type="search" placeholder="Cari" aria-label="Search">
-                    </form>
+                <!-- <div class="container"> -->
+                <span class="navbar-brand mb-0 h1">C19</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Statistik</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="list.php">Rumah Sakit Rujukan</a>
+                        </li>
+                    </ul>
                 </div>
+                <form class="d-flex" id="cari">
+                    <input class="form-control me-2 rounded-pill" type="search" placeholder="Cari" aria-label="Search">
+                </form>
+                <!-- </div> -->
             </nav>
         </div>
     </div>
@@ -78,15 +64,15 @@ $listData = $result["list_data"];
     <!-- Statistik -->
     <div class="container-fluid">
         <div class="row mt-3">
-            <div class="col-md-8">
+            <div class="col">
                 <!-- Heading -->
-                <div class="h2 text-center">Statistik</div>
+                <div class="h2 text-center">Statistik Covid Indonesia</div>
                 <hr>
                 <!-- End of heading -->
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card mb-3" style="width: 18rem;">
-                            <div class="card-body">
+                        <div class="card mb-3">
+                            <div class=" card-body">
                                 <h5 class="card-title text-center">Penambahan Kasus Harian</h5>
                                 <ul class="list-group">
                                     <li class="list-group-item list-group-item-danger">Jumlah Positif : <?= $penambahan["jumlah_positif"]; ?></li>
@@ -99,8 +85,8 @@ $listData = $result["list_data"];
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card mb-3" style="width: 18rem;">
-                            <div class="card-body">
+                        <div class="card mb-3">
+                            <div class=" card-body">
                                 <h5 class="card-title text-center">Total Kasus</h5>
                                 <ul class="list-group">
                                     <li class="list-group-item list-group-item-danger">Jumlah Positif : <?= $total["jumlah_positif"]; ?></li>
@@ -113,31 +99,46 @@ $listData = $result["list_data"];
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card mb-3" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Total Kasus Tiap Daerah</h5>
+                        <div class="card mb-3">
+                            <div class=" card-body">
+                                <h5 class="card-title text-center">Total Kasus</h5>
                                 <ul class="list-group">
-                                    <?php foreach ($listData as $data) : ?>
-                                        <li class="list-group-item list-group-item-danger"><?= $data["key"]; ?> : <?= $data["jumlah_kasus"]; ?></li>
-                                    <?php endforeach; ?>
+                                    <li class="list-group-item list-group-item-danger">Jumlah Positif : <?= $total["jumlah_positif"]; ?></li>
+                                    <li class="list-group-item list-group-item-warning">Jumlah Dirawat : <?= $total["jumlah_dirawat"]; ?></li>
+                                    <li class="list-group-item list-group-item-dark">Jumlah Meninggal : <?= $total["jumlah_meninggal"]; ?></li>
+                                    <li class="list-group-item list-group-item-success">Jumlah Sembuh : <?= $total["jumlah_sembuh"]; ?></li>
+                                    <li class="list-group-item"><i class="fas fa-calendar"></i> Data Tanggal : <?= $penambahan["tanggal"]; ?></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <h2 class="text-center">Data Tiap Daerah</h2>
+                <hr>
+
+                <table class="table text-center table-striped border rounded bg-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">Provinsi</th>
+                            <th scope="col">Kasus Positif</th>
+                            <th scope="col">Kasus Sembuh</th>
+                            <th scope="col">Kasus Meninggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($daerah as $data) : ?>
+                            <tr>
+                                <td><?= $data["key"]; ?></td>
+                                <td><?= $data["jumlah_kasus"]; ?></td>
+                                <td><?= $data["jumlah_sembuh"]; ?></td>
+                                <td class="text-center"><?= $data["jumlah_meninggal"]; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="col-md-4 border">
-                <!-- <div class="smallStatistic">
-                    <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">An active item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
-                    </ul>
-                </div> -->
-            </div>
         </div>
     </div>
     <!-- End of statistik -->
@@ -155,4 +156,4 @@ $listData = $result["list_data"];
 
 </body>
 
-</html>b
+</html>
