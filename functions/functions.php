@@ -34,3 +34,11 @@ function read($query)
 
     return $rows;
 }
+function delete($id)
+{
+    global $conn;
+
+    mysqli_query($conn, "DELETE FROM vaksin WHERE id=$id");
+
+    return mysqli_affected_rows($conn);
+}
