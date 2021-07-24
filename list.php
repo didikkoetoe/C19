@@ -1,3 +1,10 @@
+<?php
+// Connect to API
+$hospital = file_get_contents("https://dekontaminasi.com/api/id/covid19/hospitals");
+$listHospital = json_decode($hospital, true);
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -26,30 +33,26 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Rumah Sakit</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Phone</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <?php $i = 1; ?>
+                <?php foreach ($listHospital as $hospital) : ?>
+                    <?php if ($i > 10) break ?>
+                    <tr>
+                        <th><?= $i; ?></th>
+                        <td><?= $hospital["name"]; ?></td>
+                        <td><?= $hospital["address"]; ?></td>
+                        <td><?= $hospital["region"]; ?></td>
+                        <td><?= $hospital["phone"]; ?></td>
+                    </tr>
+                    <?php $i++ ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
         <!-- End of table -->
