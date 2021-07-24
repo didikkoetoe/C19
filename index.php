@@ -50,11 +50,23 @@ $daerah = $jDaerah["list_data"];
                         <li class="nav-item">
                             <a class="nav-link" href="list.php">Rumah Sakit Rujukan</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Vaksin</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">List Pendaftar Vaksin</a></li>
+                                <li><a class="dropdown-item" href="#">Daftar Vaksin</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                <form class="d-flex" id="cari">
-                    <input class="form-control me-2 rounded-pill" type="search" placeholder="Cari" aria-label="Search">
-                </form>
+                <div class="dropdown me-5">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Vaksin</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
                 <!-- </div> -->
             </nav>
         </div>
