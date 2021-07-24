@@ -4,6 +4,10 @@ require "../functions/functions.php";
 
 $lists = read("SELECT * FROM vaksin");
 
+if (isset($_POST["search"])) {
+    $lists = search($_POST["keyword"]);
+}
+
 
 ?>
 <!doctype html>
@@ -53,8 +57,9 @@ $lists = read("SELECT * FROM vaksin");
                             </li>
                         </ul>
                     </div>
-                    <form class="d-flex" id="cari">
-                        <input class="form-control me-2 rounded-pill" type="search" placeholder="Cari" aria-label="Search">
+                    <form class="d-flex" method="POST" id="cari" action="">
+                        <input class="form-control me-2 rounded-pill" name="keyword" type="search" placeholder="Cari" aria-label="Search">
+                        <button name="search" class="btn btn-outline-success rounded-pill" type="submit">Search</button>
                     </form>
                 </div>
             </nav>

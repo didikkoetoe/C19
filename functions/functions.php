@@ -22,18 +22,20 @@ function create($post)
 
     return mysqli_affected_rows($conn);
 }
+
 function read($query)
 {
     global $conn;
 
-    $result = mysqli_query($conn, $query);
     $rows = [];
+    $result = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
 
     return $rows;
 }
+
 function delete($id)
 {
     global $conn;
@@ -67,4 +69,18 @@ function update($post)
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
+}
+
+function search($keyword)
+{
+
+    $result = "SELECT * FROM vaksin WHERE
+                nik LIKE '%$keyword%' OR
+                nama LIKE '%$keyword%' OR
+                birthday LIKE '%$keyword%' OR
+                alamat LIKE '$keyword' OR
+                nomor LIKE '%$keyword%' OR
+                vaksin LIKE '%$keyword%'";
+
+    return read($result);
 }

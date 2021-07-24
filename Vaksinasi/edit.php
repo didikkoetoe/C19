@@ -70,7 +70,7 @@ if (isset($_POST["edit"])) {
 
         <!-- form -->
         <form action="" class="form mb-3" id="form" method="POST">
-            <input type="hidden" value="<?= $result["id"]; ?>">
+            <input type="hidden" name="id" value="<?= $result["id"]; ?>">
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-user"></i></div>
