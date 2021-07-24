@@ -51,7 +51,7 @@ $listData = $result["list_data"];
                                 <a class="nav-link" href="#">Statistik</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">List</a>
+                                <a class="nav-link" href="list.php">List</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="vaksinasi/index.php">Vaksinasi</a>
