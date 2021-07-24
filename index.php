@@ -1,9 +1,15 @@
 <?php
+
+// Total Penambahan kasus
 $json = file_get_contents("https://data.covid19.go.id/public/api/update.json");
 $data = json_decode($json, true);
 $penambahan = $data["update"]["penambahan"];
 $total = $data["update"]["total"];
 
+// Total Kasus tiap daerah
+$tkDaerah = file_get_contents("https://data.covid19.go.id/public/api/prov.json");
+$result = json_decode($tkDaerah, true);
+$listData = $result["list_data"];
 
 
 ?>
@@ -109,11 +115,12 @@ $total = $data["update"]["total"];
                     <div class="col-md-4">
                         <div class="card mb-3" style="width: 18rem;">
                             <div class="card-body">
-                                <h5 class="card-title text-center">Total Kasus</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <h5 class="card-title text-center">Total Kasus Tiap Daerah</h5>
+                                <ul class="list-group">
+                                    <?php foreach ($listData as $data) : ?>
+                                        <li class="list-group-item list-group-item-danger"><?= $data["key"]; ?> : <?= $data["jumlah_kasus"]; ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
                             </div>
                         </div>
                     </div>
