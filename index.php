@@ -53,8 +53,8 @@ $daerah = $jDaerah["list_data"];
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Vaksin</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">List Pendaftar Vaksin</a></li>
-                                <li><a class="dropdown-item" href="#">Daftar Vaksin</a></li>
+                                <li><a class="dropdown-item" href="vaksinasi/calon.php">List Pendaftar Vaksin</a></li>
+                                <li><a class="dropdown-item" href="vaksinasi/index.php">Daftar Vaksin</a></li>
                             </ul>
                         </li>
                     </ul>
