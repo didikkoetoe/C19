@@ -92,10 +92,10 @@ $lists = read("SELECT * FROM vaksin");
                             <a class="btn btn-danger" href="delete.php?id=<?= $data["id"]; ?>">Hapus</a>
                         </td>
                         <td><?= $data["nik"]; ?></td>
-                        <td><?= $data["name"]; ?></td>
+                        <td><?= $data["nama"]; ?></td>
                         <td><?= $data["birthday"]; ?></td>
-                        <td><?= $data["number"]; ?></td>
-                        <td><?= $data["address"]; ?></td>
+                        <td><?= $data["nomor"]; ?></td>
+                        <td><?= $data["alamat"]; ?></td>
                         <td><?= $data["ke"]; ?></td>
                     </tr>
                     <?php $i++ ?>
