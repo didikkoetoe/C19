@@ -73,6 +73,7 @@ $lists = read("SELECT * FROM vaksin");
             <thead>
                 <tr>
                     <th scope="col">No</th>
+                    <th scope="col">Aksi</th>
                     <th scope="col">NIK</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Tanggal Lahir</th>
@@ -87,6 +88,10 @@ $lists = read("SELECT * FROM vaksin");
                     <?php if ($i > 10) break ?>
                     <tr>
                         <th><?= $i; ?></th>
+                        <td>
+                            <a class="btn btn-success" data-bs-toggle="offcanvas" href="edit.php" role="button" aria-controls="offcanvasExample">Edit</a>
+                            <a class="btn btn-danger" data-bs-toggle="offcanvas" href="delete.php" role="button" aria-controls="offcanvasExample">Hapus</a>
+                        </td>
                         <td><?= $hospital["nik"]; ?></td>
                         <td><?= $hospital["name"]; ?></td>
                         <td><?= $hospital["birthday"]; ?></td>
