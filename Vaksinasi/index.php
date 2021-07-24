@@ -86,7 +86,7 @@ if (isset($_POST["daftar"])) {
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-user-circle"></i></div>
-                    <input type="text" name="name" id="name" autocomplete="off" class="form-control" placeholder="Masukan nama lengkap" required>
+                    <input type="text" name="nama" id="nama" autocomplete="off" class="form-control" placeholder="Masukan nama lengkap" required>
                 </div>
             </div>
             <div class="mb-2">
@@ -98,13 +98,13 @@ if (isset($_POST["daftar"])) {
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-phone"></i></div>
-                    <input type="tel" name="number" id="number" autocomplete="off" class="form-control" placeholder="Masukan nomor handphone / wa" required>
+                    <input type="tel" name="nomor" id="nomor" autocomplete="off" class="form-control" placeholder="Masukan nomor handphone / wa" required>
                 </div>
             </div>
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-home"></i></div>
-                    <input type="text" name="address" id="address" autocomplete="off" class="form-control" placeholder="Masukan alamat rumah" required>
+                    <input type="text" name="alamat" id="alamat" autocomplete="off" class="form-control" placeholder="Masukan alamat rumah" required>
                 </div>
             </div>
             <div class="mb-2">
