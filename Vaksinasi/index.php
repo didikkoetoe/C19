@@ -1,3 +1,21 @@
+<?php
+require "../functions/functions.php";
+
+if (isset($_POST["daftar"])) {
+    if (create($_POST) > 0) {
+        echo "<script>
+        alert('Data berhasil di tambahkan');
+        document.location.href = 'index.php';
+        </script>";
+    } else {
+        echo "<script>
+        alert('Data gagal di di tambahkan');
+        </script>";
+    }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -28,13 +46,13 @@
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-user"></i></div>
-                    <input type="text" name="NIK" id="NIK" autocomplete="off" class="form-control" placeholder="Masukan NIK" required>
+                    <input type="text" name="nik" id="nik" autocomplete="off" class="form-control" placeholder="Masukan NIK" required>
                 </div>
             </div>
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-user-circle"></i></div>
-                    <input type="text" name="nama" id="nama" autocomplete="off" class="form-control" placeholder="Masukan nama lengkap" required>
+                    <input type="text" name="name" id="name" autocomplete="off" class="form-control" placeholder="Masukan nama lengkap" required>
                 </div>
             </div>
             <div class="mb-2">
@@ -46,32 +64,21 @@
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-phone"></i></div>
-                    <input type="tel" name="nomor" id="nomor" autocomplete="off" class="form-control" placeholder="Masukan nomor handphone / wa" required>
+                    <input type="tel" name="number" id="number" autocomplete="off" class="form-control" placeholder="Masukan nomor handphone / wa" required>
                 </div>
             </div>
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-home"></i></div>
-                    <input type="text" name="alamat" id="alamat" autocomplete="off" class="form-control" placeholder="Masukan alamat rumah" required>
+                    <input type="text" name="address" id="address" autocomplete="off" class="form-control" placeholder="Masukan alamat rumah" required>
                 </div>
             </div>
             <div class="mb-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">Laki-laki</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">Perempuan</label>
+                <div class="input-group">
+                    <div class="input-group-text"><i class="fas fa-home"></i></div>
+                    <input type="number" name="ke" id="ke" autocomplete="off" class="form-control" placeholder="Vaksin ke : " required>
                 </div>
             </div>
-
-            <!-- syarat dan ketentuan -->
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="syarat" id="syarat">
-                <label class="form-check-label" for="flexCheckChecked">Setuju Dengan Syarat dan Ketentuan</label>
-            </div>
-            <!-- akhir syarat dan ketentuan -->
 
             <!-- footer -->
             <button type="submit" name="daftar" id="daftar" class="btn btn-primary float-end">Daftar</button>
