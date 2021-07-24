@@ -28,21 +28,55 @@ if (isset($_POST["daftar"])) {
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
-    <!-- CSS login -->
-    <link rel="stylesheet" href="../css/vaksinasi.css">
+    <!-- CSS Vaksinasi -->
+    <link rel="stylesheet" href="../css/index.css">
 
     <title>Vaksinasi</title>
 </head>
 
 <body>
-    <div class="container">
+
+    <!-- Navbar -->
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                <!-- <div class="container"> -->
+                <span class="navbar-brand mb-0 h1">C19</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.php">Statistik</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../list.php">Rumah Sakit Rujukan</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Vaksin</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="calon.php">List Pendaftar Vaksin</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- </div> -->
+            </nav>
+        </div>
+    </div>
+    <!-- End of navbar -->
+
+
+    <div class="container border rounded bg-light mt-3">
         <!-- header -->
-        <h2 class="text-center">Pendaftaran Vaksin Ke Puskesmas Terdekat</h2>
-        <hr>
+        <div class="row">
+            <h2 class="text-center mt-3 mb-4">Daftar Vaksi Ke Rumah Sakit Terdekat</h2>
+        </div>
         <!-- akhir header -->
 
         <!-- form -->
-        <form action="" class="form" id="form" method="POST">
+        <form action="" class="form mb-3" id="form" method="POST">
             <div class="mb-2">
                 <div class="input-group">
                     <div class="input-group-text"><i class="fas fa-user"></i></div>
@@ -81,9 +115,9 @@ if (isset($_POST["daftar"])) {
             </div>
 
             <!-- footer -->
-            <button type="submit" name="daftar" id="daftar" class="btn btn-primary float-end">Daftar</button>
-            <button type="reset" id="reset" class="btn btn-secondary float-end mx-3">Reset</button>
-            <a href="../index.php" class="btn btn-danger float-start">Kembali</a>
+            <button type="submit" name="daftar" id="daftar" class="btn btn-primary">Daftar</button>
+            <button type="reset" id="reset" class="btn btn-secondary mx-3">Reset</button>
+            <a href="../index.php" class="btn btn-danger">Kembali</a>
             <!-- akhir footer -->
         </form>
         <!-- akhir form -->
